@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="script.js"></script>
+
+    <meta charset="utf-8">
+    <title>HACKATHON</title>
+
+    <style>
+        canvas{
+            position:absolute;
+            top:170px;bottom:0;right:800px;left:50px;
+            margin:auto;
+            background-color: white;
+            margin-right:auto;
+            margin-left:auto;
+            height: 600px;
+            width: 650px;
+        }
+        .column {
+            float: right;
+            width: 50%;
+            margin: 0 auto;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .row{
+            margin: 50px;
+        }
+        #imgType{
+            width:562;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body style="background-color:#FFCC99;" onload="zaladuj()">
+<div>
+    <h1>
+        <center><div>Group 18: Granat, Merkel, Rydelek, Stawikowski</div></center>
+    </h1>
+    <form>
+        <h3><center><label for="imageInput">Choose the frame from which people will be mapped to the blueprint.</label></center></h3>
+
+        <center><input type='text' id="imageInput" name="imageInput" placeholder="Path of the frame" /></center>
+
+
+    </form>
+
+    <center><button id="createExampleSubmit" onclick="postPoint()">Map it!</button></center>
+</div>
+
+<div class="row">
+    <canvas id="myCanvas" style="background: url('mapa.jpg')"> </canvas>
+    <div class="column"><img id="blah" src="#" alt="" id="imgType"></div>
+</div>
+
+
+
+
+</body>
+</html
