@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <title>HACKATHON</title>
+
+
+</head>
+<body style="background-color:white;">
+<div>
+    <h1>
+        <div >HTML Projekt: Granat, Merkel, Rydelek, Stawikowski</div>
+    </h1>
+    <div id="centeredDiv">
+        <div id="placeH" class="row">
+            <form>
+                <div class="group">
+                <label id = "srodek" for="imageInput">Choose the frame from which people will be mapped to the blueprint.</label><br />
+                <input type='text' id="imageInput" name="imageInput" placeholder="Path of the frame"/>
+                </div>
+            </form>
+        </div>
+        <div id="placeHolder" class="row">
+            <button id="naniesPkt" class="btn">Map it!</button>
+            <div class="loader column" id="loaderWait"></div>
+        </div>
+        <div id="clearM" class="row">
+            <button id="clearMap" class="btn" onclick="clearMap()">Clear Map</button>
+        </div>
+        <div id="restartM" class="row">
+            <button id="restart" class="btn" onclick="clearContent()">Restart</button>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <canvas id="myCanvas" height = "483" width = "674" style="background: url('mapa.jpg')"></canvas>
+    <div class="column"><img id="imageToMap" src="" alt="" id="imgType" height = "483" width = "674"></div>
+</div>
+
+
+<hr>
+
+<table id="table-content-container">
+    <tr>
+        <th>Key</th>
+        <th>File name</th>
+        <th>X</th>
+        <th>Y</th>
+        <th>Analyze</th>
+    </tr>
+
+</table>
+
+
+</body>
+</html>
