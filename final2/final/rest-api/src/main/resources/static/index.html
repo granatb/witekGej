@@ -1,0 +1,133 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+    <meta charset="utf-8">
+    <title>HACKATHON</title>
+
+    <style>
+        h1, h3, h5{
+            text-align: center;
+        }
+
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+
+
+        .column {
+            float: right;
+            width: 50%;
+            margin: 0 auto;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .row{
+            margin: 50px;
+        }
+
+        #placeHolder{
+            text-align: center;
+            margin: auto;
+
+        }
+        #naniesPkt{
+            width: 10%;
+            margin: 5px;
+            float:left;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 30px;
+            height: 30px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+            float: left;
+            display:none;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #loaderWait{
+            display:block;
+        }
+    </style>
+</head>
+<body style="background-color:white;">
+
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+
+<div>
+    <form method="POST" enctype="multipart/form-data" action="/photos/">
+        <table>
+            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+            <tr><td></td><td><input type="submit" value="Upload"/></td></tr>
+        </table>
+    </form>
+    <button id="checkPhotos" onclick="window.location='http://localhost:8080/photos/';">Uploaded photos</button>
+</div>
+
+<div>
+    <ul>
+        <li th:each="file : ${files}">
+            <a th:href="${file}" th:text="${file}" />
+        </li>
+    </ul>
+</div>
+
+<div>
+    <h1>
+        <div >HTML Projekt: Granat, Merkel, Rydelek, Stawikowski</div>
+    </h1>
+    <form>
+        <h3><label id = "srodek" for="imageInput">Choose the frame from which people will be mapped to the blueprint.</label></h3>
+
+        <h5><input type='text' id="imageInput" name="imageInput" placeholder="Path of the frame"/></h5>
+
+
+
+    </form>
+    <div id="placeHolder" class="row">
+    <button id="naniesPkt" class="column">Map it!</button>
+        <div class="loader column" id="loaderWait"></div>
+    </div>
+</div>
+<div class="row">
+    <canvas id="myCanvas" height = "483" width = "674" style="background: url('mapa.jpg')"></canvas>
+    <div class="column"><img id="imageToMap" src="" alt="" id="imgType" height = "483" width = "674"></div>
+</div>
+
+
+<hr>
+
+<table id="table-content-container">
+    <tr>
+        <th>Key</th>
+        <th>File name</th>
+        <th>X</th>
+        <th>Y</th>
+        <th>Analyze</th>
+    </tr>
+
+</table>
+
+<body>
+
+
+</html>
