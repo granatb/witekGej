@@ -167,13 +167,18 @@ var toggle = function (elem) {
     show(elem);
 };
 
-var lista = [];
+
 
 var wysylaj = function(){
+	var lista = [];
     var pathString=document.getElementById("pliczek").value;
 	pathString = pathString.substring(pathString.lastIndexOf('\\') + 1);
     var i;
     var flaga = 1;
+	//var table = document.getElementById('table-content-container');
+	$("table tr td:nth-child(2)").each(function () {
+		lista.push($(this).html());
+	});
     if(lista[lista.length - 1] == pathString & lista.length > 1){
         console.log("Ten pathString juz byl");
         flaga = 0;
